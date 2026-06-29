@@ -202,20 +202,28 @@ button[type="submit"]:hover {
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-        gap: 1rem;
+        padding: 1rem;
+        gap: 1rem; /* Espaçamento entre a lista de links e o botão */
     }
     
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column; /* Empilha os links verticalmente e de forma limpa */
+        align-items: center;
+        gap: 0.8rem; /* Espaçamento entre cada link */
+        width: 100%;
     }
 
     .btn-tema {
-        position: static;
-        margin-top: 1rem;
+        position: static; /* Remove o posicionamento absoluto do desktop */
+        margin: 0;
     }
     
     main {
-        margin-top: 180px; 
+        margin-top: 260px; /* Aumenta a margem para compensar o cabeçalho mais alto e não esconder o texto */
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 1.5rem; /* Reduz um pouco o padding interno das caixas no telemóvel */
     }
 }
