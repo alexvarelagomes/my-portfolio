@@ -1,23 +1,30 @@
-/* Variáveis de Cores e Fontes */
-
+/* Variáveis de cores e fontes */
 :root {
     --cor-fundo: #f4f4f9;
     --cor-texto: #333333;
     --cor-primaria: #0056b3;
     --cor-secundaria: #ffffff;
     --cor-destaque: #007bff;
-    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-principal: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+    --sombra: 0 8px 15px rgba(0,0,0,0.1); /* Sombra mais moderna e suave */
 }
 
-/* Reset Básico */
+/* Tema escuro */
+body.dark-mode {
+    --cor-fundo: #121212;
+    --cor-texto: #e0e0e0;
+    --cor-primaria: #1f1f1f;
+    --cor-secundaria: #1e1e1e;
+    --cor-destaque: #4da3ff;
+    --sombra: 0 8px 15px rgba(0,0,0,0.5);
+}
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Comportamento de rolagem suave para a Single Page */
 
 html {
     scroll-behavior: smooth;
@@ -28,24 +35,28 @@ body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     line-height: 1.6;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Transição de cor de fundo */
 }
 
-/* Cabeçalho e Navegação */
-
+/* Cabeçalho */
 header {
     background-color: var(--cor-primaria);
-    color: var(--cor-secundaria);
-    position: fixed; /* Mantém o menu fixo no topo */
+    color: #ffffff; 
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.4s ease;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    padding: 1rem 0;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Para posicionar o botão lateralmente */
 }
 
 nav ul {
@@ -55,21 +66,39 @@ nav ul {
 }
 
 nav a {
-    color: var(--cor-secundaria);
+    color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #cce5ff;
+    color: var(--cor-destaque);
 }
 
-/* Estrutura principal das seções do portfólio */
+/*  Botão para cor do tema (DARK/LIGHT MODE) */
+.btn-tema {
+    position: absolute;
+    right: 2rem;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
 
+.btn-tema:hover {
+    background: #ffffff;
+    color: var(--cor-primaria);
+}
+
+/* Conteúdo principal */
 main {
-    margin-top: 80px; /* Espaço para o cabeçalho fixo */
+    margin-top: 100px; 
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -80,42 +109,45 @@ section {
     width: 100%;
     max-width: 800px;
     background-color: var(--cor-secundaria);
-    margin-bottom: 2rem;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2.5rem;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease, background-color 0.4s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px); /* Efeito de elevação da caixa ao passar o mouse */
 }
 
 section h2 {
-    color: var(--cor-primaria);
+    color: var(--cor-destaque);
     margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--cor-fundo);
     padding-bottom: 0.5rem;
 }
 
-
-/* Listas para Formação e Portfólio */
-
+/* Listas do conteúdo */
 ul {
     margin-left: 1.5rem;
     margin-bottom: 1rem;
 }
 
 li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 a {
     color: var(--cor-destaque);
     text-decoration: none;
+    font-weight: 600;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-/* Fórmulário de Contato */
-
+/* Formulário de contato */
 form {
     display: flex;
     flex-direction: column;
@@ -123,17 +155,25 @@ form {
 }
 
 label {
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 0.3rem;
     display: block;
 }
 
 input, textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 1rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     font-family: inherit;
+    background-color: var(--cor-fundo); /* Se adapta no dark mode */
+    color: var(--cor-texto);
+    transition: background-color 0.4s ease, color 0.4s ease, border 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
 }
 
 textarea {
@@ -141,33 +181,41 @@ textarea {
     min-height: 120px;
 }
 
-button {
-    background-color: var(--cor-primaria);
-    color: var(--cor-secundaria);
+button[type="submit"] {
+    background-color: var(--cor-destaque);
+    color: #ffffff;
     border: none;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: var(--cor-destaque);
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.02); /* Efeito de clique do botão */
 }
 
-/* Responsividade para Dispositivos Móveis */
-
-@media (max-width: 600px) {
-    nav ul {
+/* Responsividade para dispositivos móveis. */
+@media (max-width: 768px) {
+    nav {
         flex-direction: column;
-        align-items: center;
         gap: 1rem;
     }
     
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn-tema {
+        position: static;
+        margin-top: 1rem;
+    }
+    
     main {
-        margin-top: 150px; /* Ajuste do topo para o menu empilhado */
-        padding: 1rem;
+        margin-top: 180px; 
     }
 }
