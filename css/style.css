@@ -210,7 +210,7 @@ button[type="submit"]:hover {
         flex-direction: column;
         align-items: center;
         gap: 0.8rem; /* Espaçamento entre cada link */
-        width: 200%;
+        width: 100%;
     }
 
     .btn-tema {
