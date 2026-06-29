@@ -5,24 +5,30 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnTema = document.getElementById("btnTema");
     const body = document.body;
 
+    // Verifica no LocalStorage se o utilizador já ativou o dark mode
+    if (localStorage.getItem("tema") === "escuro") {
+        body.classList.add("dark-mode");
+        btnTema.textContent = "☀️ Claro";}
+
     // Escuta o clique no botão de tema
     btnTema.addEventListener("click", function() {
-        // A função 'toggle' adiciona a classe se não existir, ou remove se existir
         body.classList.toggle("dark-mode");
         
-        // Altera o texto e o ícone do botão dependendo do tema ativo
+        // Altera o texto do botão e guarda a preferência
         if (body.classList.contains("dark-mode")) {
             btnTema.textContent = "☀️ Claro";
+            localStorage.setItem("tema", "escuro"); // Guarda a escolha do utilizador
         } else {
             btnTema.textContent = "🌙 Escuro";
-        }
-    });
+            localStorage.setItem("tema", "claro"); // Guarda a escolha do utilizador
+        }});
     
     // Seleciona o formulário de contato pelo ID
     const formContato = document.getElementById("formContato");
 
     // Adiciona um evento que entende quando o botão de envio é clicado
-    formContato.addEventListener("submit", function(evento) {
+    if (formContato) {
+        formContato.addEventListener("submit", function(evento) {
         
         // Impede o comportamento padrão de recarregar a página ao enviar
         evento.preventDefault();
@@ -51,4 +57,5 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("Mensagem enviada com sucesso!");
         formContato.reset();
     });
+}
 });
