@@ -199,7 +199,7 @@ button[type="submit"]:hover {
 }
 
 /* Responsividade para dispositivos móveis. */
-@media (max-width: 300px) {
+@media (max-width: 750px) {
     nav {
         flex-direction: column;
         padding: 1rem;
