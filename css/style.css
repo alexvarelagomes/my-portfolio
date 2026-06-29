@@ -199,31 +199,48 @@ button[type="submit"]:hover {
 }
 
 /* Responsividade para dispositivos móveis. */
+@media (max-width: 992px) {
+    nav {
+        padding: 1rem;
+        flex-wrap: wrap; /* Permite que os itens quebrem a linha se necessário */
+    }
+    
+    nav ul {
+        gap: 1.5rem;
+    }
+
+    .btn-tema {
+        position: static; /* Remove o botão do canto direito */
+        margin-left: 1rem;
+    }
+}
+
+/* Ajustes Definitivos para Celulares (Telas até 768px) */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         padding: 1rem;
-        gap: 1rem; /* Espaçamento entre a lista de links e o botão */
     }
     
     nav ul {
-        flex-direction: column; /* Empilha os links verticalmente e de forma limpa */
+        flex-direction: column; /* Empilha os links um embaixo do outro */
         align-items: center;
-        gap: 0.8rem; /* Espaçamento entre cada link */
         width: 100%;
+        gap: 1rem;
     }
 
     .btn-tema {
-        position: static; /* Remove o posicionamento absoluto do desktop */
-        margin: 0;
+        margin: 1rem auto 0 auto; /* Centraliza o botão perfeitamente abaixo do menu */
+        display: block;
     }
     
     main {
-        margin-top: 260px; /* Aumenta a margem para compensar o cabeçalho mais alto e não esconder o texto */
+        margin-top: 280px; /* Margem extra-larga para o menu empilhado não engolir o título */
         padding: 1rem;
     }
     
     section {
-        padding: 1.5rem; /* Reduz um pouco o padding interno das caixas no telemóvel */
+        padding: 1.5rem; /* Reduz o respiro interno das caixas no celular */
+        margin-bottom: 1.5rem;
     }
 }
