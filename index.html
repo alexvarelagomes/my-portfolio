@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Portfólio</title>
-    
+
+    <!-- Estilo CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <!-- Cabeçalho para navegação -->
     <header>
         <nav>
             <ul>
-                <li><a href="#sobre">Sobre mim</a></li>
+                <li><a href="#sobre">Sobre mim</a></li>  
                 <li><a href="#formacao">Formação</a></li>
                 <li><a href="#portfolio">Portfólio</a></li>
                 <li><a href="#contato">Contato</a></li>
@@ -20,12 +22,13 @@
         </nav>
     </header>
 
+    <!-- Conteúdo principal informando sobre mim ... -->
     <main>
         <section id="sobre">
             <h2>Sobre mim</h2>
             <p>Olá! Meu nome é Alex Varela Gomes. Sou formado em Ciências Contábeis e estudante de Análise e Desenvolvimento de Sistemas e um apaixonado por tudo que envolve tecnologia...</p>
             </section>
-
+    <!-- Conteúdo da formação, idiomas e cursos -->
         <section id="formacao">
             <h2>Formação</h2>
             <ul>
@@ -39,11 +42,12 @@
             <h2>Portfólio</h2>
             <p>Confira alguns dos meus projetos abaixo:</p><br>
             <ul>
+                <!-- Projetos desenvolvidos e publicados no github. -->
                 <li><a href="https://github.com/alexvarelagomes/xml-for-danfe" target="_blank">XML for DANFE</a></li>
                 <li><a href="https://github.com/alexvarelagomes/daily-currency-bot" target="_blank">Daily Currency Bot</a></li>
             </ul>
         </section>
-
+        <!-- Conteúdo do formulário para preenchimento caso o usuário queira entrar em contato -->
         <section id="contato">
             <h2>Contato</h2>
             <form id="formContato">
@@ -61,12 +65,12 @@
                     <label for="mensagem">Mensagem:</label>
                     <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem aqui..." required></textarea>
                 </div>
-                
+                <!-- Botão para envio do formulário -->
                 <button type="submit">Enviar mensagem</button>
             </form>
         </section>
     </main>
-
+    <!-- Integração com o script JavaScript. -->
     <script src="js/script.js"></script>
 </body>
 </html>
