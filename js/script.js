@@ -1,5 +1,22 @@
 // Aguarda o carregamento completo do documento HTML
 document.addEventListener("DOMContentLoaded", function() {
+
+    // Seleciona o botão de alternância de tema pelo ID
+    const btnTema = document.getElementById("btnTema");
+    const body = document.body;
+
+    // Escuta o clique no botão de tema
+    btnTema.addEventListener("click", function() {
+        // A função 'toggle' adiciona a classe se não existir, ou remove se existir
+        body.classList.toggle("dark-mode");
+        
+        // Altera o texto e o ícone do botão dependendo do tema ativo
+        if (body.classList.contains("dark-mode")) {
+            btnTema.textContent = "☀️ Claro";
+        } else {
+            btnTema.textContent = "🌙 Escuro";
+        }
+    });
     
     // Seleciona o formulário de contato pelo ID
     const formContato = document.getElementById("formContato");
