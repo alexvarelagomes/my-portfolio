@@ -199,48 +199,32 @@ button[type="submit"]:hover {
 }
 
 /* Responsividade para dispositivos móveis. */
-@media (max-width: 992px) {
-    nav {
-        padding: 1rem;
-        flex-wrap: wrap; /* Permite que os itens quebrem a linha se necessário */
-    }
-    
-    nav ul {
-        gap: 1.5rem;
-    }
-
-    .btn-tema {
-        position: static; /* Remove o botão do canto direito */
-        margin-left: 1rem;
-    }
-}
-
-/* Ajustes Definitivos para Celulares (Telas até 768px) */
-@media (max-width: 768px) {
+@media (max-width: 300px) {
     nav {
         flex-direction: column;
         padding: 1rem;
+        gap: 0rem; /* Espaçamento entre a lista de links e o botão */
     }
     
     nav ul {
-        flex-direction: column; /* Empilha os links um embaixo do outro */
+        flex-direction: column;
         align-items: center;
-        width: 100%;
-        gap: 1rem;
+        gap: 0.8rem; /* Espaçamento entre cada link */
+        width: 200%;
     }
 
     .btn-tema {
-        margin: 1rem auto 0 auto; /* Centraliza o botão perfeitamente abaixo do menu */
-        display: block;
+        position: static; /* Remove o posicionamento absoluto do desktop */
+        margin-bottom: 10px; /* Adiciona um pequeno espaçamento abaixo do botão */
+        align-self: center;
     }
     
     main {
-        margin-top: 280px; /* Margem extra-larga para o menu empilhado não engolir o título */
+        margin-top: 50px; /* Aumenta a margem para compensar o cabeçalho mais alto e não esconder o texto */
         padding: 1rem;
     }
     
     section {
-        padding: 1.5rem; /* Reduz o respiro interno das caixas no celular */
-        margin-bottom: 1.5rem;
+        padding: 1.5rem; /* Reduz um pouco o padding interno das caixas no telemóvel */
     }
 }
